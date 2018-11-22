@@ -32,7 +32,7 @@ define([
 
         connection.trigger('requestTokens');
         connection.trigger('requestEndpoints');
-		printObject(connection.trigger('requestTokens'));
+		alert(JSON.stringify(connection.trigger('requestTokens')));
 
         // Disable the next button if a value isn't selected
         $('#select1').change(function() {
