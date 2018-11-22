@@ -1,0 +1,13 @@
+{
+    "name": "finan/jbdelogger",
+    "description": "Testing journeybuilder custom activity",
+    "minimum-stability": "dev",
+    "require": {
+		"php": ">=5.5.0"
+	},
+    "autoload": {
+        "psr-0": {
+            "HelloWorld": "src/"
+        }
+    }
+}
