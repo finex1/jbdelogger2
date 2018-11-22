@@ -123,7 +123,7 @@ define([
         }
 
         currentStep = step;
-
+alert(currentStep.key);
         $('.step').hide();
 
         switch(currentStep.key) {
@@ -184,7 +184,7 @@ define([
         // Journey Builder sends an initial payload with defaults
         // set by this activity's config.json file.  Any property
         // may be overridden as desired.
-        payload.name = name;
+      payload.name = onGetTokens;
 
         payload['arguments'].execute.inArguments = [{ "message": value }];
 
