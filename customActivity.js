@@ -5,7 +5,7 @@ define([
 ) {
     'use strict';
     var prodEnv = require('./prod.env')
-	alert(JSON.stringify(prodEnv.env.clientid));
+	//alert(JSON.stringify(prodEnv.env.clientid));
     var connection = new Postmonger.Session();
     var payload = {};
     var lastStepEnabled = false;
@@ -95,7 +95,7 @@ define([
         // console.log(tokens);
 		 console.log(tokens);
         authTokens = tokens;
-		alert(JSON.stringify(authTokens));
+	//	alert(JSON.stringify(authTokens));
     }
 
     function onGetEndpoints (endpoints) {
@@ -192,7 +192,7 @@ define([
         // set by this activity's config.json file.  Any property
         // may be overridden as desired.
       payload.name = name;
-
+console.log(name);
         payload['arguments'].execute.inArguments = [{ "message": value }];
 
         payload['metaData'].isConfigured = true;
