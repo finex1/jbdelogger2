@@ -7,6 +7,7 @@ define([
     //var prodEnv = require('prod.env')
 	//alert(JSON.stringify(prodEnv.env.clientid));
     var connection = new Postmonger.Session();
+	var authTokens = {};
     var payload = {};
     var lastStepEnabled = false;
     var steps = [ // initialize to the same value as what's set in config.json for consistency
