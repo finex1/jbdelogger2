@@ -23,6 +23,18 @@
                 },
                 {
                     "phoneNumber": "{{Contact.Default.PhoneNumber}}"
+                },
+                {
+                    "journeytype": ""
+                },
+                {
+                    "entrytype": ""
+                },
+                {
+                    "objective": ""
+                },
+                {
+                    "reason": ""
                 }
             ],
             "outArguments": [
@@ -96,6 +108,34 @@
                     {
                         "emailAddress": {
                             "dataType": "Email",
+                            "isNullable": false,
+                            "direction": "in"
+                        }
+                    },
+                    {
+                        "journeytype": {
+                            "dataType": "Text",
+                            "isNullable": false,
+                            "direction": "in"
+                        }
+                    },
+                    {
+                        "entrytype": {
+                            "dataType": "Text",
+                            "isNullable": false,
+                            "direction": "in"
+                        }
+                    },
+                    {
+                        "objective": {
+                            "dataType": "Text",
+                            "isNullable": false,
+                            "direction": "in"
+                        }
+                    },
+                    {
+                        "reason": {
+                            "dataType": "Text",
                             "isNullable": false,
                             "direction": "in"
                         }
