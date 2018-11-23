@@ -45,7 +45,7 @@ define([
             connection.trigger('updateButton', { button: 'next', enabled: Boolean(filledform.journeytype) });
 
             $('#message1').html("Fill all the relevant fields and click Next when you ready");
-			$('#message').html(journeytype+"<br/>"+entrytype+"<br/>"+objective+"<br/>"+reason);
+			$('#message').html(filledform.journeytype+"<br/>"+filledform.entrytype+"<br/>"+filledform.objective+"<br/>"+filledform.reason);
         });
 
      
