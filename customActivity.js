@@ -37,15 +37,12 @@ define([
         // Disable the next button if a value isn't selected
         $('#journeytype').change(function() {
 			 var filledform = getMessage();
-			 if ((filledform.filled)) {
-            console.log(filledform);
-        }else{
-			filledform = getMessage();
-		}
+		
+		
 			
             //var message = getMessage();
 			
-            connection.trigger('updateButton', { button: 'next', enabled: Boolean(filledform.filled) });
+            connection.trigger('updateButton', { button: 'next', enabled: Boolean(filledform.journeytype) });
 
             $('#message1').html("Fill all the relevant fields and click Next when you ready");
         });
