@@ -39,26 +39,55 @@
 </head>
 <body>
 <div id="step1" class="step">
-
-    Select your SMS message:
-    <select id="select1">
-        <option value="">Select an option</option>
-        <option value="someMessage">Some SMS</option>
-        <option value="anotherMessage">Another SMS</option>
-        <option value="thirdMessage">Third SMS</option>
-        <option value="unknownMessage">Unknown SMS</option>
+<table cellspacing="2">
+<tr>
+	<td>Select Journey type:</td>
+	<td><select id="journeytype">
+        <option value="">Select a Journey type</option>
+        <option value="cold">Cold</option>
+        <option value="warm">Warm</option>
+        <option value="hot">Hot</option>
+    </select></td>
+</tr>
+<tr>
+	<td>Select Log type:</td>
+	<td>
+	<select required id="entrytype">
+	  <option value="">Select a Log type</option>
+       <option value="entry">Entry</option>
+        <option value="exit">Exit</option>
     </select>
+	</td>
+</tr>
+<tr>
+	<td>Objective:</td>
+	<td>
+	<select required id="objective">
+	<option value="">Select Objective</option>
+       <option value="met">Met</option>
+        <option value="notmet">Not Met</option>
+    </select>
+	</td>
+</tr>
+<tr>
+	<td>Reason:</td>
+	<td>
+	<input name="reason" id="reason" maxlength="200" size="40" value="" type="text"/>
+	</td>
+</tr>
+<tr>
+	<td colspan="2"><br/><br/><br/><div id="message1"></div></td>
+	
+</tr>
+</table>
+ 
 
-    <button id="toggleLastStep">Toggle Last Step</button>
+   
 </div>
 <div id="step2" class="step">
-    Here's a second page with some info on it.
+    Here is your selected values <br/><br/>
+	<div id="message"></div>
 </div>
-<div id="step3" class="step">
-    You chose the message: <div id="message"></div>
-</div>
-<div id="step4" class="step">
-    Hey, here's a fourth step, just for you.  Toggle this on or off from step 1.
-</div>
+
 </body>
 </html>

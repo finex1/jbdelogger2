@@ -9,12 +9,10 @@ define([
     var connection = new Postmonger.Session();
 	var authTokens = {};
     var payload = {};
-    var lastStepEnabled = false;
+    
     var steps = [ // initialize to the same value as what's set in config.json for consistency
         { "label": "Step 1", "key": "step1" },
-        { "label": "Step 2", "key": "step2" },
-        { "label": "Step 3", "key": "step3" },
-        { "label": "Step 4", "key": "step4", "active": false }
+        { "label": "Step 2", "key": "step2" }
     ];
     var currentStep = steps[0].key;
 
@@ -35,27 +33,32 @@ define([
         connection.trigger('requestTokens');
         connection.trigger('requestEndpoints');
 		
-
+      
         // Disable the next button if a value isn't selected
-        $('#select1').change(function() {
-            var message = getMessage();
+        $('#journeytype').change(function() {
+			 var filledform = getMessage();
+			 if ((filledform.filled)) {
+            console.log(filledform);
+        }else{
+			filledform = getMessage();
+		}
 			
-            connection.trigger('updateButton', { button: 'next', enabled: Boolean(message) });
+            //var message = getMessage();
+			
+            connection.trigger('updateButton', { button: 'next', enabled: Boolean(filledform.filled) });
 
-            $('#message').html(message);
+            $('#message1').html("Fill all the relevant fields and click Next when you ready");
         });
 
-        // Toggle step 4 active/inactive
-        // If inactive, wizard hides it and skips over it during navigation
-        $('#toggleLastStep').click(function() {
-            lastStepEnabled = !lastStepEnabled; // toggle status
-            steps[3].active = !steps[3].active; // toggle active
-
-            connection.trigger('updateSteps', steps);
-        });
+     
     }
 
     function initialize (data) {
+		var journeytype;
+        var entrytype;
+        var objective;
+		var reason;
+		
         if (data) {
             payload = data;
 			
@@ -73,29 +76,42 @@ define([
 
         $.each(inArguments, function(index, inArgument) {
             $.each(inArgument, function(key, val) {
-                if (key === 'message') {
-                    message = val;
-                }
+                if (key === 'journeytype') {
+                    journeytype = val;
+                }else if (key === 'entrytype') {
+					entrytype = val;
+				}else if (key === 'objective') {
+					objective = val;
+				}else if (key === 'reason') {
+					reason = val;
+				}
             });
         });
+			$('#journeytype').val(journeytype);
+			$('#entrytype').val(entrytype);
+			$('#objective')	.val(objective);	
+			$('#reason').val(reason);
 
+
+		
+		
         // If there is no message selected, disable the next button
-        if (!message) {
+        if (!journeytype) {
             showStep(null, 1);
             connection.trigger('updateButton', { button: 'next', enabled: false });
             // If there is a message, skip to the summary step
         } else {
-            $('#select1').find('option[value='+ message +']').attr('selected', 'selected');
-            $('#message').html(message);
-            showStep(null, 3);
+          var filledform = getMessage();
+            $('#message').html(filledform.journeytype+"<br/>"+filledform.entrytype+"<br/>"+filledform.objective+"<br/>"+filledform.reason);
+            showStep(null, 2);
         }
     }
 
     function onGetTokens (tokens) {
         // Response: tokens = { token: <legacy token>, fuel2token: <fuel api token> }
         // console.log(tokens);
-		 console.log(tokens);
-        authTokens = tokens;
+		 //console.log(tokens);
+       // authTokens = tokens;
 	//	alert(JSON.stringify(authTokens));
     }
 
@@ -107,8 +123,8 @@ define([
 
     function onClickedNext () {
         if (
-            (currentStep.key === 'step3' && steps[3].active === false) ||
-            currentStep.key === 'step4'
+            (currentStep.key === 'step1' && steps[1].active === false) ||
+            currentStep.key === 'step2'
         ) {
             save();
         } else {
@@ -153,39 +169,17 @@ define([
                     visible: true
                 });
                 connection.trigger('updateButton', {
-                    button: 'next',
-                    text: 'next',
-                    visible: true
-                });
-                break;
-            case 'step3':
-                $('#step3').show();
-                connection.trigger('updateButton', {
-                     button: 'back',
-                     visible: true
-                });
-                if (lastStepEnabled) {
-                    connection.trigger('updateButton', {
-                        button: 'next',
-                        text: 'next',
-                        visible: true
-                    });
-                } else {
-                    connection.trigger('updateButton', {
                         button: 'next',
                         text: 'done',
                         visible: true
                     });
-                }
                 break;
-            case 'step4':
-                $('#step4').show();
-                break;
+            
         }
     }
 
     function save() {
-        var name = $('#select1').find('option:selected').html();
+        var name = $('#journeytype').find('option:selected').html();
         var value = getMessage();
 
         // 'payload' is initialized on 'initActivity' above.
@@ -202,7 +196,23 @@ console.log(name);
     }
 
     function getMessage() {
-        return $('#select1').find('option:selected').attr('value').trim();
+		 var formvalues = {
+            journeytype: "",
+            entrytype: "",
+            objective: "",
+            reason: "",
+			filled:false
+
+        };
+        formvalues.journeytype = $('#journeytype').find('option:selected').attr('value').trim();
+		formvalues.entrytype = $('#entrytype').find('option:selected').attr('value').trim();
+		formvalues.objective = $('#objective').find('option:selected').attr('value').trim();
+		formvalues.reason = $('#reason').val();
+		if ((formvalues.journeytype)&& (formvalues.entrytype)&& ((formvalues.objective)|| (formvalues.reason))){
+			formvalues.filled = true;
+		}
+		
+		return formvalues;
     }
 
 });

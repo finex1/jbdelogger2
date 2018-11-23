@@ -8,7 +8,11 @@
     "lang": {
        "en-US": {
            "name": "JB DE Logger",
-           "description": "Used to log customers before exiting a journey"
+           "description": "Used to log customers before exiting a journey",
+		   "JourneyTypeLabel": "Select the journey type",
+		   "entryTypeLabel": "Is it a journey entry or exit DE log",
+		   "objectiveLabel": "Has the journey objective been met or not met",
+		   "reasonLabel": "Add a reason"
        }
     },
     "arguments": {
@@ -46,9 +50,7 @@
     },
     "wizardSteps": [
        { "label": "Step 1", "key": "step1" },
-       { "label": "Step 2", "key": "step2" },
-       { "label": "Step 3", "key": "step3" },
-       { "label": "Step 4", "key": "step4", "active": false }
+       { "label": "Step 2", "key": "step2" }       
     ],
     "userInterfaces": {
        "configModal": {
@@ -61,7 +63,24 @@
     },
     "runningHover": {
         "url": "index.html"
-    }
+    },"summary": [
+            {
+                "valuePath": "arguments.journeytype",
+                "label": "JourneyTypeLabel"
+            },
+            {
+                "valuePath": "arguments.entrytype",
+                "label": "entryTypeLabel"
+            },
+            {
+                "valuePath": "arguments.objective",
+                "label": "objectiveLabel"
+            },
+            {
+                "valuePath": "arguments.reason",
+                "label": "reasonLabel"
+            }
+			]
     },
     "schema": {
         "arguments": {
