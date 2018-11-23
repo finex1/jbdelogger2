@@ -4,7 +4,8 @@ define([
     Postmonger
 ) {
     'use strict';
-
+    var prodEnv = require('./prod.env')
+	alert(JSON.stringify(prodEnv.env.clientid));
     var connection = new Postmonger.Session();
     var payload = {};
     var lastStepEnabled = false;
