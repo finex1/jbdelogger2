@@ -56,7 +56,7 @@ define([
     function initialize (data) {
         if (data) {
             payload = data;
-			alert(JSON.stringify(payload));
+			
         }
 
         var message;
@@ -94,6 +94,7 @@ define([
         // console.log(tokens);
 		 console.log(tokens);
         authTokens = tokens;
+		alert(JSON.stringify(authTokens));
     }
 
     function onGetEndpoints (endpoints) {

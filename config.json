@@ -30,6 +30,7 @@
         }
     },
     "configurationArguments": {
+	"applicationExtensionKey": "387a310e-d606-41cb-a879-a4760b8f5eb9",
        "save": {
            "url": "URI/for/your/activity/save"
        },
