@@ -51,7 +51,7 @@
            "url": "URI/for/your/activity/save"
        },
        "publish": {
-           "url": "https://jbdelogger1.herokuapp.com/"
+           "url": "https://jbdelogger1.herokuapp.com/publish"
        },
        "validate": {
            "url": "URI/for/your/activity/validate"
