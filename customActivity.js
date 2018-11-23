@@ -72,20 +72,7 @@ define([
 
         var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
 
-        $.each(inArguments, function(index, inArgument) {
-			console.log(inArgument);
-            $.each(inArgument, function(key, val) {
-                if (key === 'journeytype') {
-                    journeytype = val;
-                }else if (key === 'entrytype') {
-					entrytype = val;
-				}else if (key === 'objective') {
-					objective = val;
-				}else if (key === 'reason') {
-					reason = val;
-				}
-            });
-        });
+       
 		if (payload['arguments']) {
             journeytype = payload['arguments'].journeytype;
             entrytype = payload['arguments'].entrytype;
