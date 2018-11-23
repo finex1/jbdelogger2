@@ -187,14 +187,14 @@ define([
         // set by this activity's config.json file.  Any property
         // may be overridden as desired.
       payload.name = filledform.journeytype+" "+filledform.entrytype+" "+filledform.objective;
-		payload['arguments'].journeytype = journeytype;
-        payload['arguments'].entrytype = entrytype;
-        payload['arguments'].objective = objective;
-		payload['arguments'].reason = reason;
+		payload['arguments'].journeytype = filledform.journeytype;
+        payload['arguments'].entrytype = filledform.entrytype;
+        payload['arguments'].objective = filledform.objective;
+		payload['arguments'].reason = filledform.reason;
         payload['arguments'].execute.inArguments = [{ "message": filledform.journeytype+"<br/>"+filledform.entrytype+"<br/>"+filledform.objective+"<br/>"+filledform.reason}];
 
         payload['metaData'].isConfigured = true;
-
+payload.dataExtensionId = 'testjourneylog';
         connection.trigger('updateActivity', payload);
     }
 
