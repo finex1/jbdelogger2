@@ -86,6 +86,14 @@ define([
 				}
             });
         });
+		if (payload['arguments']) {
+            journeytype = payload['arguments'].journeytype;
+            entrytype = payload['arguments'].entrytype;
+            objective = payload['arguments'].objective;
+			reason = payload['arguments'].reason;
+        }
+
+        
 			$('#journeytype').val(journeytype);
 			$('#entrytype').val(entrytype);
 			$('#objective')	.val(objective);	
