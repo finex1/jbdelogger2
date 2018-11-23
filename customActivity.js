@@ -98,8 +98,8 @@ define([
             connection.trigger('updateButton', { button: 'next', enabled: false });
             // If there is a message, skip to the summary step
         } else {
-          var filledform = getMessage();
-            $('#message').html(filledform.journeytype+"<br/>"+filledform.entrytype+"<br/>"+filledform.objective+"<br/>"+filledform.reason);
+          
+            $('#message').html(journeytype+"<br/>"+entrytype+"<br/>"+objective+"<br/>"+reason);
             showStep(null, 2);
         }
     }
@@ -120,11 +120,10 @@ define([
 
     function onClickedNext () {
         if (
-            (currentStep.key === 'step1' && steps[1].active === false) ||
-            currentStep.key === 'step2'
-        ) {
+            (currentStep.key === 'step1' && steps[1].active === false) || currentStep.key === 'step2'  ) {
             save();
         } else {
+			onClickedNext
             connection.trigger('nextStep');
         }
     }
@@ -177,15 +176,15 @@ define([
 
     function save() {
         var name = $('#journeytype').find('option:selected').html();
-        var value = getMessage();
+        var filledform = getMessage();
 
         // 'payload' is initialized on 'initActivity' above.
         // Journey Builder sends an initial payload with defaults
         // set by this activity's config.json file.  Any property
         // may be overridden as desired.
-      payload.name = name;
+      payload.name = filledform.journeytype+" "+filledform.entrytype+" "+filledform.objective;
 console.log(name);
-        payload['arguments'].execute.inArguments = [{ "message": value }];
+        payload['arguments'].execute.inArguments = [{ "message": filledform.journeytype+"<br/>"+filledform.entrytype+"<br/>"+filledform.objective+"<br/>"+filledform.reason}];
 
         payload['metaData'].isConfigured = true;
 
