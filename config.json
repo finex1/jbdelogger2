@@ -45,21 +45,7 @@
             "url": "https://jbdelogger1.herokuapp.com/execute"
         }
     },
-    "configurationArguments": {
-	"applicationExtensionKey": "387a310e-d606-41cb-a879-a4760b8f5eb9",
-       "save": {
-           "url": "URI/for/your/activity/save"
-       },
-       "publish": {
-           "url": "https://jbdelogger1.herokuapp.com/publish"
-       },
-       "validate": {
-           "url": "URI/for/your/activity/validate"
-       },
-       "stop": {
-           "url": "URI/for/your/activity/stop"
-       }
-    },
+    "configurationArguments": {},
     "wizardSteps": [
        { "label": "Step 1", "key": "step1" },
        { "label": "Step 2", "key": "step2" }       
