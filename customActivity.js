@@ -45,6 +45,7 @@ define([
             connection.trigger('updateButton', { button: 'next', enabled: Boolean(filledform.journeytype) });
 
             $('#message1').html("Fill all the relevant fields and click Next when you ready");
+			 $('#message1').html("Fill all the relevant fields and click Next when you ready");
         });
 
      
@@ -99,7 +100,12 @@ define([
             // If there is a message, skip to the summary step
         } else {
           
-            $('#message').html(journeytype+"<br/>"+entrytype+"<br/>"+objective+"<br/>"+reason);
+            message = $('#journeytype').val(journeytype);
+			message += $('#entrytype').val(entrytype);
+			message += $('#objective')	.val(objective);	
+			message += $('#reason').val(reason);
+
+            $('#message').html(message);
             showStep(null, 2);
         }
     }
