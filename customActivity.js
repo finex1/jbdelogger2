@@ -45,7 +45,7 @@ define([
             connection.trigger('updateButton', { button: 'next', enabled: Boolean(filledform.journeytype) });
 
             $('#message1').html("Fill all the relevant fields and click Next when you ready");
-			$('#message').html(filledform.journeytype+"<br/>"+filledform.entrytype+"<br/>"+filledform.objective+"<br/>"+filledform.reason);
+			
         });
 
      
@@ -106,7 +106,7 @@ define([
 			message += $('#reason').val(reason);
 
             $('#message').html(message);
-            showStep(null, 2);
+            showStep(null, 1);
         }
     }
 
@@ -129,8 +129,10 @@ define([
             (currentStep.key === 'step1' && steps[1].active === false) || currentStep.key === 'step2'  ) {
             save();
         } else {
+		//	 var filledform = getMessage();
 			onClickedNext
             connection.trigger('nextStep');
+		//	$('#message').html(filledform.journeytype+"<br/>"+filledform.entrytype+"<br/>"+filledform.objective+"<br/>"+filledform.reason);
         }
     }
 
