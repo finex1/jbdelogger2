@@ -32,7 +32,7 @@ define([
 
         connection.trigger('requestTokens');
         connection.trigger('requestEndpoints');
-		alert(Clientid);
+		alert(process.env.clientid);
 
         // Disable the next button if a value isn't selected
         $('#select1').change(function() {
