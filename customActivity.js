@@ -73,6 +73,7 @@ define([
         var inArguments = hasInArguments ? payload['arguments'].execute.inArguments : {};
 
         $.each(inArguments, function(index, inArgument) {
+			console.log(inArgument);
             $.each(inArgument, function(key, val) {
                 if (key === 'journeytype') {
                     journeytype = val;
@@ -132,7 +133,7 @@ define([
 			 var filledform = getMessage();
 			onClickedNext
             connection.trigger('nextStep');
-			$('#message').html(filledform.journeytype+"<br/>"+filledform.entrytype+"<br/>"+filledform.objective+"<br/>"+filledform.reason);
+			$('#message').html("Journey Type: "+filledform.journeytype+"<br/>"+"Entry Type: "+filledform.entrytype+"<br/>"+"Objective: "+filledform.objective+"<br/>"+"Reason: "+filledform.reason);
         }
     }
 
