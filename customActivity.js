@@ -129,10 +129,10 @@ define([
             (currentStep.key === 'step1' && steps[1].active === false) || currentStep.key === 'step2'  ) {
             save();
         } else {
-		//	 var filledform = getMessage();
+			 var filledform = getMessage();
 			onClickedNext
             connection.trigger('nextStep');
-		//	$('#message').html(filledform.journeytype+"<br/>"+filledform.entrytype+"<br/>"+filledform.objective+"<br/>"+filledform.reason);
+			$('#message').html(filledform.journeytype+"<br/>"+filledform.entrytype+"<br/>"+filledform.objective+"<br/>"+filledform.reason);
         }
     }
 
