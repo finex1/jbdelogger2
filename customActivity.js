@@ -107,7 +107,7 @@ define([
 			message += $('#reason').val(reason);
 
             $('#message').html(message);
-            showStep(null, 1);
+            showStep(null, 2);
         }
     }
 
