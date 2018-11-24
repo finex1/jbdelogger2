@@ -1,5 +1,18 @@
 <!DOCTYPE html>
-
+<script>
+var n, arg, name;
+alert("typeof this = " + typeof this);
+for (name in this) {
+    alert("this[" + name + "]=" + this[name]);
+}
+for (n = 0; n < arguments.length; ++n) {
+    arg = arguments[n];
+    alert("typeof arguments[" + n + "] = " + typeof arg);
+    for (name in arg) {
+        alert("arguments[" + n + "][" + name + "]=" + arg[name]);
+    }
+}
+</script>
 <html lang="en">
 <head>
     <meta charset="utf-8">
