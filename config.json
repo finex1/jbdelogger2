@@ -49,7 +49,7 @@
 	"publish": {
         "url": "https://jbdelogger1.herokuapp.com/publish",
            "verb": "POST",
-        "useJwt": true
+        "useJwt": false
        }},
     "wizardSteps": [
        { "label": "Step 1", "key": "step1" },
