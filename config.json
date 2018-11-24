@@ -47,7 +47,7 @@
     },
     "configurationArguments": {
 	"publish": {
-        "url": "https://jbdelogger1.herokuapp.com/publish",
+        "url": "https://jbdelogger1.herokuapp.com/publish/index.php",
            "verb": "POST",
         "useJwt": false
        }},
