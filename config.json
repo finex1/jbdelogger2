@@ -62,10 +62,10 @@
            "fullscreen": true
        },
 		"runningModal": {
-        "url": "publish/index.html"
+        "url": "publish/index.php"
     },
     "runningHover": {
-        "url": "publish/index.html"
+        "url": "publish/index.php"
     },"summary": [
             {
                 "valuePath": "arguments.journeytype",
