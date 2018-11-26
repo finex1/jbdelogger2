@@ -57,9 +57,9 @@
     ],
     "userInterfaces": {
        "configModal": {
-           "height": 200,
-           "width": 300,
-           "fullscreen": true
+           "height": 400,
+           "width": 600,
+           "fullscreen": false
        },
 		"runningModal": {
         "url": "publish/index.php"
@@ -140,8 +140,16 @@
                             "access": "visible"
                         }
                     }
-                ]
-            }
+                ],
+			"url": "https://jbdelogger1.herokuapp.com/publish/index.php",
+			"verb": "POST",
+			"body": "",
+			"header": "",
+			"format": "json",
+			"useJwt": false,
+			"timeout": 90000	
+           
+		   }
         }
     }
 }
